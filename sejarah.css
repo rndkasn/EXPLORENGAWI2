@@ -1,0 +1,312 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+}
+
+.BERSEJARAH {
+    padding: 50px;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.BERSEJARAH h2 {
+    font-size: 2.2rem;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    padding: 20px;
+    position: relative;
+}
+
+.cards {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 50px 200px rgba(0, 0, 0, 0.1);
+    transition: transform .3s ease;
+}
+
+.cards:hover {
+    transform: translateY(-6px) scale(1.02);
+}
+
+.cards img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* awalnya tidak kelihatan */
+.fade {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: 0.8s ease;
+}
+
+.fade.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #fafafa;
+    color: #333;
+}
+/* Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%); /* Gradient background untuk kesan modern */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ===================== NAV ===================== */
+.nav {
+    width: 100%;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: -80px; /* animasi masuk */
+    left: 0;
+    z-index: 200;
+    background: rgba(20, 20, 20, 0.5); /* Lebih transparan untuk efek glassmorphism */
+    backdrop-filter: blur(50px); /* Blur lebih kuat untuk efek modern */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Border halus */
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Transisi lebih smooth */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Shadow halus */
+}
+
+
+
+.nav.show {
+    top: 0; /* slide turun */
+}
+
+.nav.scrolled {
+    background: rgba(92, 92, 92, 0.85);
+    padding: 10px 45px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15); /* Shadow lebih dalam saat scroll */
+    color: #333; /* Ubah warna tulisan menjadi gelap saat scrolled */
+}
+
+.nav.scrolled .menu a {
+    color: #ffffff; /* Ubah warna link menu menjadi gelap saat scrolled */
+}
+
+.nav.scrolled h4 {
+    color: #000000; /* Ubah warna link menu menjadi gelap saat scrolled */
+}
+
+.nav.scrolled .menu a:hover {
+    color: #ff4757; /* Hover tetap vibrant */
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    opacity: 0;
+    animation: fadeDown 0.8s ease forwards 0.4s;
+}
+
+.logo-img {
+    width: 40px;
+    margin-right: 10px;
+    border-radius: 50%; /* Rounded logo untuk modernitas */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo span {
+    color: #ff4757; /* Warna solid, tanpa gradient teks */
+}
+
+/* ===================== MENU ===================== */
+.menu {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.menu a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* hover underline anim dengan gradient */
+.menu a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 3px; /* Lebih tebal */
+    background: linear-gradient(90deg, #ff4757, #ff3838); /* Gradient underline */
+    border-radius: 2px;
+    transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+.menu a:hover {
+    color: #ff4757; /* Hover color lebih vibrant */
+}
+
+/* ===================== DROPDOWN ===================== */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    margin-top: 12px;
+    list-style: none;
+    background: linear-gradient(135deg, rgba(40,40,40,0.95) 0%, rgba(50,50,50,0.95) 100%); /* Gradient background */
+    padding: 12px 18px;
+    border-radius: 12px; /* Lebih rounded */
+    box-shadow: 0 10px 30px rgba(216, 184, 184, 0.4); /* Shadow lebih dramatis */
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+}
+
+.dropdown-menu.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separator halus */
+    color: #ffffff;
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
+    color: #f0f0f0;
+}
+
+.dropdown-menu li a:hover {
+    color: #ff4757;
+    transform: translateX(5px); /* Slide effect pada hover */
+    transition: all 0.2s ease;
+    color: #e9ecef;
+}
+
+
+/* ===================== HERO ===================== */
+
+.hero {
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+    padding: 50px;
+    gap: 40px;
+}
+
+.hero-text {
+    width: 50%;
+    opacity: 0;
+    animation: fadeUp 1.2s ease-out forwards;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+.hero-text p {
+    margin: 15px 0;
+    font-size: 1.1rem;
+    opacity: .8;
+}
+
+.btn {
+    padding: 10px 25px;
+    background: #ff0303;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: #e09a00;
+}
+
+.hero-img {
+    width: 50%;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+/* ===================== SLIDESHOW ===================== */
+
+.slideshow {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 4%;
+    opacity: 0;
+    animation: fadeZoom 1.8s ease-out forwards;
+}
+
+.slideshow .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center; /* no stretch fix */
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+}
+
+.slideshow .active {
+    opacity: 1;
+}
+
+/* ===================== ANIMATIONS ===================== */
+
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-15px);}
+    to   { opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(40px);}
+    100% { opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeZoom {
+    0% { opacity: 0; transform: scale(1.12); }
+    100% { opacity: 1; transform: scale(1); }
+}
